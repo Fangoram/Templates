@@ -1,0 +1,60 @@
+#include <iostream>
+#include "Header.h"
+using namespace std;
+
+template <class T_type>
+class tempClass
+{
+private:
+	T_type x;
+	T_type y;
+	T_type z;
+public:
+	tempClass(T_type one, T_type two, T_type three) : x(one), y(two), z(three) {}
+	T_type mult();
+	T_type thing(T_type fst, T_type scd);
+};
+template <class T_type> 
+T_type tempClass<T_type>::mult()
+{
+	return x * y * z;
+}
+
+template <class T_type> 
+T_type tempClass<T_type>::thing(T_type fst, T_type scd)
+{
+	return fst + scd;
+}
+class intClass
+{
+private:
+	int num1;
+	int num2;
+public:
+	intClass(int x, int y) : num1(x), num2(y) {}
+	int multiply();
+	int addition(int int1, int int2);
+
+};
+int intClass::multiply()
+{
+	return num1*num2;
+}
+int intClass::addition(int int1, int int2)
+{
+	return int1 + int2;
+}
+int main()
+{
+	cout << "hello world\n";
+	intClass itClass(5, 7);
+	cout << itClass.addition(15, 30) << endl;
+	cout << itClass.multiply() << endl;
+	tempClass<int> iClass(7, 13, 216);
+	cout << iClass.mult() << endl;
+	cout << iClass.thing(7, 19) << endl;
+	tempClass<double> dClass(6.45, 76.13, 105.76);
+	cout << dClass.mult() << endl;
+	cout << dClass.thing(4.5, 10.4) << endl;
+	return 0;
+}
